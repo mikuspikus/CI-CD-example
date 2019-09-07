@@ -1,0 +1,17 @@
+language: python
+deploy:
+  provider: heroku
+
+  api_key:
+    secure: 4f436f79-f0f8-4d3a-8599-f1fbc8f6dcd9
+
+  app: whispering-castle-35269
+
+  on:
+    repo: mikuspikus/CI-CD-example
+
+  run:
+    - "python manage.py migrate"
+    - restart
+
+script: "python manage.py test"
